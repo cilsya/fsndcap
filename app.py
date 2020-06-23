@@ -1,4 +1,4 @@
-#--------------------------- Imports (Start) -----------------------------------
+# -------------------------- Imports (Start) ----------------------------------
 
 import os
 from flask import Flask, request, abort, jsonify
@@ -6,47 +6,48 @@ from flask_cors import CORS
 from .database.models import setup_db, Actors, Movies
 from .auth.auth import AuthError, requires_auth
 
-#--------------------------- Imports (End) -------------------------------------
+# -------------------------- Imports (End) ------------------------------------
 
-#--------------------------- Functions (Start) ---------------------------------
+# -------------------------- Functions (Start) --------------------------------
+
 
 def create_app(test_config=None):
     """
     Function used to create the main app.
     """
-    
+
     # create and configure the FLASK app
     app = Flask(__name__)
-    
+
     # Separated out the database setup.
     # This will abstract and allow to swap out different databases (i.e.
     # SQLLite3, Postgres, MySQL, etc...)
     setup_db(app)
-    
+
     # To handle Cross Origin Resource Sharing (CORS).
     # https://flask-cors.readthedocs.io/en/latest/
     CORS(app)
-    
-    #------------------------------
-    
+
+    # -----------------------------
+
     @app.after_request
     def after_request(response):
-        
+
         response.headers.add(
             "Access-Control-Allow-Headers",
             "Content-Type, Authorization")
-        
+
         response.headers.add(
             "Access-Control-Allow-Methods",
             "GET,POST,DELETE,PATCH")
-        
+
         return response
-    
-    #---------------------------------------------------------------------------
+
+    # -------------------------------------------------------------------------
     # Setup endpoints
     # (Start)
-    #---------------------------------------------------------------------------
-    
+    # -------------------------------------------------------------------------
+
     @app.route("/")
     def welcome():
         msg = "Casting Agency App"
@@ -123,7 +124,7 @@ def create_app(test_config=None):
         return jsonify({
             "success": True,
         })
-    
+
     @app.route("/actors", methods=["GET"])
     @requires_auth(permission="get:actors")
     def get_Actors(payload):
@@ -198,17 +199,17 @@ def create_app(test_config=None):
         return jsonify({
             "success": True,
         })
-    
-    #---------------------------------------------------------------------------
+
+    # -------------------------------------------------------------------------
     # Setup endpoints
     # (End)
-    #---------------------------------------------------------------------------
-    
-    #---------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+
+    # -------------------------------------------------------------------------
     # Error handling
     # (Start)
-    #---------------------------------------------------------------------------
-    
+    # -------------------------------------------------------------------------
+
     @app.errorhandler(AuthError)
     def unauthorized(error):
         print(error.status_code)
@@ -218,7 +219,7 @@ def create_app(test_config=None):
             "error": error.status_code,
             "message": error.error
         }), error.status_code
-    
+
     @app.errorhandler(400)
     def Bad_request(error):
         return jsonify({
@@ -226,7 +227,7 @@ def create_app(test_config=None):
             'error': 400,
             'messege': "Bad request"
         }), 400
-    
+
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({
@@ -251,24 +252,23 @@ def create_app(test_config=None):
             "message": "Internal server error"
         }), 500
 
-    #---------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Error handling
     # (End)
-    #---------------------------------------------------------------------------
-    
+    # -------------------------------------------------------------------------
+
     return app
 
 # NOTE: This app variable is visible to the module when it is imported
-#       There is another app variable that is only in the scope of 
+#       There is another app variable that is only in the scope of
 #       create_app() function for the FLASK app.
 app = create_app()
 
-#--------------------------- Functions (End) -----------------------------------
+# -------------------------- Functions (End) ----------------------------------
 
-#--------------------------- Auto-Execute (Start) ------------------------------
+# -------------------------- Auto-Execute (Start) -----------------------------
 
 if __name__ == '__main__':
     app.run()
 
-#--------------------------- Auto-Execute (End) --------------------------------
- 
+# -------------------------- Auto-Execute (End) -------------------------------
