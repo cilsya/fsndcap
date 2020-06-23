@@ -1,82 +1,98 @@
+import os
 import json
 from flask import request, _request_ctx_stack
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
 
+# -----------------------
+# Environment variables
+# (Start)
+# -----------------------
 
-AUTH0_DOMAIN = 'dev-z9vtbw-e.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'drink'
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+ALGORITHMS = os.environ['ALGORITHMS']
+API_AUDIENCE = os.environ['API_AUDIENCE']
 
-## AuthError Exception
-'''
+# -----------------------
+# Environment variables
+# (End)
+# -----------------------
+
+# AuthError Exception
+"""
 AuthError Exception
 A standardized way to communicate auth failure modes
-'''
+"""
+
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
 
 
-## Auth Header
+# Auth Header
 
-'''
+"""
 @TODO implement get_token_auth_header() method
     it should attempt to get the header from the request
         it should raise an AuthError if no header is present
     it should attempt to split bearer and the token
         it should raise an AuthError if the header is malformed
     return the token part of the header
-'''
+"""
+
+
 def get_token_auth_header():
     if "Authorization" in request.headers:
         auth_header = request.headers["Authorization"]
-        
         if auth_header:
-            bearer_token_array = auth_header.split(' ')
+            bearer_token_array = auth_header.split(" ")
             if bearer_token_array[0] and bearer_token_array[0].lower() == \
-                "bearer" and bearer_token_array[1]:
+               "bearer" and bearer_token_array[1]:
                 return bearer_token_array[1]
-    
+
     # If we made it this far, there is an error.
     raise AuthError({
-        'success': False,
-        'message': 'JWT not found',
-        'error': 401
-        }, 
-        
-        # Return status
-        401 )
+        "success": False,
+        "message": "JWT not found",
+        "error": 401
+        },
 
-'''
+        # Return status
+        401)
+
+"""
 @TODO implement check_permissions(permission, payload) method
     @INPUTS
-        permission: string permission (i.e. 'post:drink')
+        permission: string permission (i.e. "post:drink")
         payload: decoded jwt payload
 
     it should raise an AuthError if permissions are not included in the payload
         !!NOTE check your RBAC settings in Auth0
-    it should raise an AuthError if the requested permission string is not in the payload permissions array
+    it should raise an AuthError if the requested permission
+    string is not in the payload permissions array
     return true otherwise
-'''
+"""
+
+
 def check_permissions(permission, payload):
     if "permissions" in payload:
-        if permission in payload['permissions']:
+        if permission in payload["permissions"]:
             return True
-    
+
     # Error if we made it this far
     raise AuthError({
-        'success': False,
-        'message': 'Permission not found in JWT',
-        'error': 401
+        "success": False,
+        "message": "Permission not found in JWT",
+        "error": 401
         },
-        
-        # Return status
-        401 )
 
-'''
+        # Return status
+        401)
+
+"""
 @TODO implement verify_decode_jwt(token) method
     @INPUTS
         token: a json web token (string)
@@ -87,15 +103,19 @@ def check_permissions(permission, payload):
     it should validate the claims
     return the decoded payload
 
-    !!NOTE urlopen has a common certificate error described here: https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
-'''
+    !!NOTE urlopen has a common certificate error described here:
+    https://stackoverflow.com/questions/50236117/scraping-ssl
+    -certificate-verify-failed-error-for-http-en-wikipedia-org
+"""
+
+
 def verify_decode_jwt(token):
     """
     Description: This is a boiler-plate described in lecture.
     """
-    
+
     # GET THE PUBLIC KEY FROM AUTH0
-    jsonurl = urlopen(f'http://{AUTH0_DOMAIN}/.well-known/jwks.json')
+    jsonurl = urlopen(f"http://{AUTH0_DOMAIN}/.well-known/jwks.json")
     jwks = json.loads(jsonurl.read())
 
     # GET THE DATA IN THE HEADER
@@ -103,21 +123,21 @@ def verify_decode_jwt(token):
 
     # CHOOSE OUR KEY
     rsa_key = {}
-    if 'kid' not in unverified_header:
+    if "kid" not in unverified_header:
         raise AuthError({
-            'success': False,
-            'message': 'Authorization malformed',
-            'error': 401,
+            "success": False,
+            "message": "Authorization malformed",
+            "error": 401,
         }, 401)
 
-    for key in jwks['keys']:
-        if key['kid'] == unverified_header['kid']:
+    for key in jwks["keys"]:
+        if key["kid"] == unverified_header["kid"]:
             rsa_key = {
-                'kty': key['kty'],
-                'kid': key['kid'],
-                'use': key['use'],
-                'n': key['n'],
-                'e': key['e']
+                "kty": key["kty"],
+                "kid": key["kid"],
+                "use": key["use"],
+                "n": key["n"],
+                "e": key["e"]
             }
 
     # Finally, verify!!!
@@ -129,63 +149,67 @@ def verify_decode_jwt(token):
                 rsa_key,
                 algorithms=ALGORITHMS,
                 audience=API_AUDIENCE,
-                issuer='https://' + AUTH0_DOMAIN + '/'
+                issuer="https://" + AUTH0_DOMAIN + "/"
             )
 
             return payload
 
         except jwt.ExpiredSignatureError:
             raise AuthError({
-                'success': False,
-                'message': 'Token expired',
-                'error': 401,
+                "success": False,
+                "message": "Token expired",
+                "error": 401,
                 },
-                
+
                 # Return status
                 401)
 
         except jwt.JWTClaimsError:
             raise AuthError({
-                'success': False,
-                'message': 'Incorrect claims. Please, check the audience and issuer',
-                'error': 401,
+                "success": False,
+                "message": "Incorrect claims. Please, "
+                           "check the audience and issuer",
+                "error": 401,
                 },
-                
+
                 # Return status
                 401)
-            
+
         except Exception:
             raise AuthError({
-                'success': False,
-                'message': 'Unable to parse authentication token',
-                'error': 400,
+                "success": False,
+                "message": "Unable to parse authentication token",
+                "error": 400,
                 },
-                
+
                 # Return status
                 400)
-            
+
     raise AuthError({
-        'success': False,
-        'message': 'Unable to find the appropriate key',
-        'error': 400,
+        "success": False,
+        "message": "Unable to find the appropriate key",
+        "error": 400,
         },
-        
+
         # Return status
         400)
 
-'''
+"""
 @TODO implement @requires_auth(permission) decorator method
     @INPUTS
-        permission: string permission (i.e. 'post:drink')
+        permission: string permission (i.e. "post:drink")
 
     it should use the get_token_auth_header method to get the token
     it should use the verify_decode_jwt method to decode the jwt
-    it should use the check_permissions method validate claims and check the requested permission
-    return the decorator which passes the decoded payload to the decorated method
-    
+    it should use the check_permissions method validate claims and
+    check the requested permission return the decorator which passes the
+    decoded payload to the decorated method
+
     NOTE: THIS WAS ALREADY IMPLEMENTED. I DID NOT HAVE TO DO ANYTHING.
-'''
-def requires_auth(permission=''):
+"""
+
+
+def requires_auth(permission=""):
     def requires_auth_decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
