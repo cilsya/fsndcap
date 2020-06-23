@@ -1,9 +1,18 @@
+"""
+Description:
+Used to authorize permissions for roles when trying to access endpoints.
+"""
+
+# -------------------------- Imports (Start) ----------------------------------
+
 import os
 import json
 from flask import request, _request_ctx_stack
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+
+# -------------------------- Imports (End) ------------------------------------
 
 # -----------------------
 # Environment variables
@@ -26,11 +35,15 @@ A standardized way to communicate auth failure modes
 """
 
 
+# -------------------------- Classes (Start) ----------------------------------
+
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
 
+# -------------------------- Classes (End) ------------------------------------
 
 # Auth Header
 
@@ -42,6 +55,8 @@ class AuthError(Exception):
         it should raise an AuthError if the header is malformed
     return the token part of the header
 """
+
+# -------------------------- Functions (Start) --------------------------------
 
 
 def get_token_auth_header():
@@ -220,3 +235,5 @@ def requires_auth(permission=""):
 
         return wrapper
     return requires_auth_decorator
+
+# -------------------------- Functions (End) ----------------------------------
