@@ -14,11 +14,12 @@ import json
 # -------------------------- Imports (End) ------------------------------------
 
 # It seems like the environment variable DATABASE_URL will be created
-# by Heroku. For local testing, export the environment variable in the 
+# by Heroku. For local testing, export the environment variable in the
 # terminal before running the FLASK app.
-# 
+#
 # i.e.
-# export DATABASE_URL=postgresql://postgres:postgres@localhost:5432/herokusample
+# export DATABASE_URL=
+# postgresql://postgres:postgres@localhost:5432/herokusample
 #
 # database_name = "my_database"
 # user_name = "postgres"
