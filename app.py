@@ -1,3 +1,13 @@
+"""
+Description:
+Entry point of main app.
+
+Notes:
+- CORS used for cross origin resource sharing.
+- Use @requires_auth decorator to setup permissions based on role of user.
+- Database and authorization related code separated out into their own folder.
+"""
+
 # -------------------------- Imports (Start) ----------------------------------
 
 import os
