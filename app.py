@@ -62,12 +62,12 @@ def create_app(test_config=None):
     def welcome():
         msg = "Casting Agency App"
         return jsonify(msg)
-        
+
     @app.route("/headers")
     def headers():
-        #if 'Authorization' in request.headers:
-        #    abort(401)
-        #return "DEBUG - /headers endpoint is working!"
+        # if 'Authorization' in request.headers:
+        #     abort(401)
+        # return "DEBUG - /headers endpoint is working!"
         return request.headers['Authorization']
 
     @app.route("/login-results")
@@ -128,7 +128,7 @@ def create_app(test_config=None):
             })
         except Exception:
             abort(404)
-            #abort(401)
+            # abort(401)
 
     @app.route("/movies/<int:id>", methods=["PATCH"])
     @requires_auth(permission="patch:movies")
@@ -202,7 +202,7 @@ def create_app(test_config=None):
             })
         except Exception:
             abort(404)
-            #abort(401)
+            # abort(401)
 
     @app.route("/actors/<int:id>", methods=["PATCH"])
     @requires_auth(permission="patch:actors")
@@ -236,7 +236,7 @@ def create_app(test_config=None):
     # Error handling
     # (Start)
     # -------------------------------------------------------------------------
-    
+
     # HTML Status codes:
     # https://www.restapitutorial.com/httpstatuscodes.html#:~
     # :text=If%20the%20server%20does%20not,is%20cacheable

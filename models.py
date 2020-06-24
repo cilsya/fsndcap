@@ -10,7 +10,7 @@ import json
 import os
 from flask_migrate import Migrate
 from sqlalchemy import Float, Column, Integer, String, create_engine
-from flask_sqlalchemy import SQLAlchemy                                                                                                                        
+from flask_sqlalchemy import SQLAlchemy
 
 # -------------------------- Imports (End) ------------------------------------
 

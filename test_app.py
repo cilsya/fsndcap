@@ -201,18 +201,18 @@ class FSNDCapstoneTest(unittest.TestCase):
         self.assertEqual(body['success'], True)
 
     def test_422_wrong_Actor_ID_create_Movie(self):
-      res = self.client().post(
-          '/movies',
-          json={
-              "name": "bob",
-              "length": "10",
-              "genre": "Action",
-              "actor_ID": "10000"},
-          headers={"Authorization": 'bearer '+self.accesstoken_producer}
-          )
-      body = json.loads(res.data)
-      self.assertEqual(res.status_code, 404)
-      self.assertEqual(body['success'], False)
+        res = self.client().post(
+            '/movies',
+            json={
+                "name": "bob",
+                "length": "10",
+                "genre": "Action",
+                "actor_ID": "10000"},
+            headers={"Authorization": 'bearer '+self.accesstoken_producer}
+            )
+        body = json.loads(res.data)
+        self.assertEqual(res.status_code, 404)
+        self.assertEqual(body['success'], False)
 
     def test_401_Unauthorized_Permission_create_Movie(self):
         res = self.client().post(
