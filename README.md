@@ -82,7 +82,11 @@ This will install all of the required packages we selected within the `requireme
 Make sure you are working in the virtual environment.
 
 To run the server, execute:
-                                                          
+
+NOTE: If you are on windows `setup.sh` would not work, however it you use Git Bash, it recognizes some Linux commands.
+You can copy the contents in the `setup.sh` and execute it in Git Bash. Alternatively, you can just set all of the
+environment variable names the way Windows sets them.
+
 ```bash
 source setup.sh
 export FLASK_APP=app.py
