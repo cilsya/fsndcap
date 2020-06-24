@@ -13,8 +13,8 @@ Notes:
 import os
 from flask import Flask, request, abort, jsonify
 from flask_cors import CORS
-from .database.models import setup_db, Actors, Movies
-from .auth.auth import AuthError, requires_auth
+from database.models import setup_db, Actors, Movies
+from auth.auth import AuthError, requires_auth
 
 # -------------------------- Imports (End) ------------------------------------
 

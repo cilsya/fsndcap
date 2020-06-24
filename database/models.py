@@ -6,10 +6,11 @@ This sets up the database schema
 
 # -------------------------- Imports (Start) ----------------------------------
 
-import os
-from sqlalchemy import Column, Integer, String, create_engine
-from flask_sqlalchemy import SQLAlchemy
 import json
+import os
+from flask_migrate import Migrate
+from sqlalchemy import Float, Column, Integer, String, create_engine
+from flask_sqlalchemy import SQLAlchemy                                                                                                                        
 
 # -------------------------- Imports (End) ------------------------------------
 
