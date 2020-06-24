@@ -120,13 +120,13 @@ of the Postman collection is here `fsnd-capstone.postman_test_run.json`.
 
 ## Deployment
 
-The app is deployed on Heroku [link]().
+The app is deployed on Heroku [link](https://heroku-fsndcap-app-cilsya.herokuapp.com/).
 
 ## API Reference
 
 ### Getting Started
 
-- Base URL: [link]()
+- Base URL: [link](https://heroku-fsndcap-app-cilsya.herokuapp.com/)
 - Authentication: This app has 3 users. Each has his own token which are provided in `setup.sh` file. Details about each user privilege are provided below.
 
 ### Endpoints
