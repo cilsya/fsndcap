@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "bce8ec6f-e194-410e-aaed-ef9784edb5d3",
+		"name": "fsnd-capstone",
+		"description": "These are the test user permissions for the FSND Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Assistant",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpqUjN2TUVDNGR1RmtCTTRfbDcwcCJ9.eyJpc3MiOiJodHRwczovL2Rldi16OXZ0YnctZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVmMzZhNjU2NzY5ZDgwMDEzMjQxN2U3IiwiYXVkIjoiQ2FzdGluZ0FuZ2VuY3lJZGVudGlmaWVyIiwiaWF0IjoxNTkzMDEwOTA2LCJleHAiOjE1OTMwOTczMDYsImF6cCI6IllWNE9INjc4czBpeXhqQXdxeGVhbWczM1FpMjlXeklEIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.rIuCWsDh3Ag7cSUwHaJ1_jEra1VcbDsUNq_p0tBhUx6M-JwueTKNZa_ckVRkGsfWSNA2MMWfKI6Txri1bDnLyoqf_87TU_prhXTTFFlYq85sE_PtAQcdVo38xljTQPFwckAPNLJtm9aieF4fRAUVbUhdlAXuvvF4OL8lXKPPv9RXJFwefBejKFfMWiLDQfMncb7b2UvOzWQ7bEA29va7tTqzrOZLc1IDTprbKBtzO8lL39dQqHsT969NpLECzxfotm5B9j9SiMEs1WHXITowMhYAKgaUIBwkCEmSb6Q2X8v6EDBE4CA0j3729zeUxMpcWKxY_6wgsZghBciiUBJ8GQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "87d09b57-91b0-49b6-8992-f869a8e6e0b1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0e586467-8d14-4825-a7d4-6cc2b31c80fa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Director",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpqUjN2TUVDNGR1RmtCTTRfbDcwcCJ9.eyJpc3MiOiJodHRwczovL2Rldi16OXZ0YnctZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVjNjU0NTM3MDYxZWEwYzY3MDczZGQ4IiwiYXVkIjoiQ2FzdGluZ0FuZ2VuY3lJZGVudGlmaWVyIiwiaWF0IjoxNTkzMDEwNDE5LCJleHAiOjE1OTMwOTY4MTksImF6cCI6IllWNE9INjc4czBpeXhqQXdxeGVhbWczM1FpMjlXeklEIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.C3xXYaLiqW5ZZiIW0HFqnJluGB2OLPc4f63UA2wNAxUWTaNDq9mQQP_WX6_OFJULXwGL05rzfV39DGi8LFSZJZjpO3pEFtw8TQLXvZXdcm9lBPoGx63kGgyS0AduKn0i1IXV6UeYRkqqfXUEviRVFgA5N5caKzkTA9HMv0czMNT-dlj_lQ_ZvASXdn6KGx6LpgPvUYt8KsT7qkh65ThIFn9xd2HOsfkp2Z69H3dTj2IREgreO8uZi73rlgCF7Vz7AEz23IpU08lPZRLUX43WYgPeN2MOFYhfPxFELg2NvsUyJr_qR4ORUGUvDyBi99HyhreEM3e4ESLcDMrKbR8-eg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e919df47-b60c-424b-b55c-e86527b91bab",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fc93056-a4c6-4fed-bd6b-58232bffef2a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Producer",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpqUjN2TUVDNGR1RmtCTTRfbDcwcCJ9.eyJpc3MiOiJodHRwczovL2Rldi16OXZ0YnctZS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWVjNzdjYTdkNjZlMWMwYmY0NTUwMTE2IiwiYXVkIjoiQ2FzdGluZ0FuZ2VuY3lJZGVudGlmaWVyIiwiaWF0IjoxNTkzMDA5MTE2LCJleHAiOjE1OTMwOTU1MTYsImF6cCI6IllWNE9INjc4czBpeXhqQXdxeGVhbWczM1FpMjlXeklEIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.lLfTXCBFSNzjBh4hOYFXAYJV680S_-JJ74uxx-XmhLaGzw3r-u1Qwmeva0V19IpHa9dyrAkYBrZore_N9mq_1CDYXoaFMrmPAT1eGaEtcF-4WQ0dPfLFuaaFLkbOxW8qa29ltABsl3g7VYzufVNq-4oq7l7RgZWt7qXL0A2MHfFX6D2MtYiJWl_xLryikfnTk8P3wN1dBRAx1pz2w5axguBcuuepjX8DmDkAAIJhCxoKZQbSfuxt2BkU4A9lnYyVD8-_0a1_SsmlaB_XFmm1J8wSV_M0ZPPqjAo_jI7J9KjtkZYzCDkpj6sMBp27E9eYk27Zdeb-RkdEeZnb04KrAQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1f36e290-f568-43da-814b-788359abcefd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a46c068-e545-4e71-aadc-0564d95faf8e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3e2fff0a-8a78-46d9-8b46-af4814af74ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "02a70e39-e81a-41c5-b6f7-3299f9752877",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "006cc06e-f1be-4ba7-9c74-297c173ae102",
+			"key": "host",
+			"value": "localhost:5000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

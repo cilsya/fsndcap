@@ -1,0 +1,282 @@
+{
+	"id": "abf2475f-4b52-43c1-be46-54eb1da5f844",
+	"name": "fsnd-capstone",
+	"timestamp": "2020-06-24T15:46:31.701Z",
+	"collection_id": "bce8ec6f-e194-410e-aaed-ef9784edb5d3",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3c152930-0f9a-4e52-8aad-d0e6b8c1bc74",
+			"name": "/",
+			"url": "http://localhost:5000/",
+			"time": 510,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				510
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ccca2e01-4b40-4f69-8ecf-0c0d7f2d6e28",
+			"name": "actors",
+			"url": "http://localhost:5000/actors",
+			"time": 507,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				507
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5709f5bd-4b69-497d-b0ba-cfbaf201364e",
+			"name": "/movies",
+			"url": "http://localhost:5000/movies",
+			"time": 508,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				508
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2c3d5368-f055-41d5-b072-4c9cbfc77366",
+			"name": "/",
+			"url": "http://localhost:5000/",
+			"time": 508,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				508
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a005adf7-d460-470d-b1c4-f962ac552234",
+			"name": "actors",
+			"url": "http://localhost:5000/actors",
+			"time": 1288,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1288
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e6a7ddf4-0e65-4da5-80a3-378d8f4c88e5",
+			"name": "/movies",
+			"url": "http://localhost:5000/movies",
+			"time": 1133,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1133
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "aebffd40-c0ef-4aae-a7e5-a9ccc9a71287",
+			"name": "/",
+			"url": "http://localhost:5000/",
+			"time": 508,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				508
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a9edf7d3-065a-4dd7-bd09-90983ed8e543",
+			"name": "actors",
+			"url": "http://localhost:5000/actors",
+			"time": 1133,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1133
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "edc685f6-c25e-4f8b-b857-b7c1701d28dd",
+			"name": "/movies",
+			"url": "http://localhost:5000/movies",
+			"time": 1117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1117
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bb6ffb13-77c9-41bb-a0b1-0b386fc15e3a",
+			"name": "/",
+			"url": "http://localhost:5000/",
+			"time": 508,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				508
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1106ea67-0b85-4a92-9ea6-e903ecf8f0fa",
+			"name": "actors",
+			"url": "http://localhost:5000/actors",
+			"time": 1126,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1126
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f412d109-a614-4014-a9fb-30d7e10a65b3",
+			"name": "/movies",
+			"url": "http://localhost:5000/movies",
+			"time": 1129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1129
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 9975,
+	"collection": {
+		"requests": [
+			{
+				"id": "3c152930-0f9a-4e52-8aad-d0e6b8c1bc74",
+				"method": "GET"
+			},
+			{
+				"id": "ccca2e01-4b40-4f69-8ecf-0c0d7f2d6e28",
+				"method": "GET"
+			},
+			{
+				"id": "5709f5bd-4b69-497d-b0ba-cfbaf201364e",
+				"method": "GET"
+			},
+			{
+				"id": "2c3d5368-f055-41d5-b072-4c9cbfc77366",
+				"method": "GET"
+			},
+			{
+				"id": "a005adf7-d460-470d-b1c4-f962ac552234",
+				"method": "GET"
+			},
+			{
+				"id": "e6a7ddf4-0e65-4da5-80a3-378d8f4c88e5",
+				"method": "GET"
+			},
+			{
+				"id": "aebffd40-c0ef-4aae-a7e5-a9ccc9a71287",
+				"method": "GET"
+			},
+			{
+				"id": "a9edf7d3-065a-4dd7-bd09-90983ed8e543",
+				"method": "GET"
+			},
+			{
+				"id": "edc685f6-c25e-4f8b-b857-b7c1701d28dd",
+				"method": "GET"
+			},
+			{
+				"id": "bb6ffb13-77c9-41bb-a0b1-0b386fc15e3a",
+				"method": "GET"
+			},
+			{
+				"id": "1106ea67-0b85-4a92-9ea6-e903ecf8f0fa",
+				"method": "GET"
+			},
+			{
+				"id": "f412d109-a614-4014-a9fb-30d7e10a65b3",
+				"method": "GET"
+			}
+		]
+	}
+}

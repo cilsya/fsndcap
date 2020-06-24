@@ -62,6 +62,19 @@ def create_app(test_config=None):
     def welcome():
         msg = "Casting Agency App"
         return jsonify(msg)
+        
+    @app.route("/headers")
+    def headers():
+        #if 'Authorization' in request.headers:
+        #    abort(401)
+        #return "DEBUG - /headers endpoint is working!"
+        return request.headers['Authorization']
+
+    @app.route("/login-results")
+    def loginresults():
+        msg = ("Login results page. You should now have access to '/actors',"
+               "'/movies', depending on your persmission level.")
+        return jsonify(msg)
 
     @app.route("/movies", methods=["GET"])
     @requires_auth(permission="get:movies")
