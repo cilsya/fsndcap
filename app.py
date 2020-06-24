@@ -13,8 +13,8 @@ Notes:
 import os
 from flask import Flask, request, abort, jsonify
 from flask_cors import CORS
-from .database.models import setup_db, Actors, Movies
-from .auth.auth import AuthError, requires_auth
+from models import setup_db, Actors, Movies
+from auth import AuthError, requires_auth
 
 # -------------------------- Imports (End) ------------------------------------
 
@@ -119,6 +119,8 @@ def create_app(test_config=None):
                 genre=body["genre"])
             actors = Actors.query.filter(
                 Actors.id == body["actor_ID"]).one_or_none()
+            if actors is None:
+                abort(404)
             movie.Actors = [actors]
             movie.insert()
             return jsonify({
@@ -126,6 +128,7 @@ def create_app(test_config=None):
             })
         except Exception:
             abort(404)
+            #abort(401)
 
     @app.route("/movies/<int:id>", methods=["PATCH"])
     @requires_auth(permission="patch:movies")
@@ -199,6 +202,7 @@ def create_app(test_config=None):
             })
         except Exception:
             abort(404)
+            #abort(401)
 
     @app.route("/actors/<int:id>", methods=["PATCH"])
     @requires_auth(permission="patch:actors")
@@ -232,6 +236,11 @@ def create_app(test_config=None):
     # Error handling
     # (Start)
     # -------------------------------------------------------------------------
+    
+    # HTML Status codes:
+    # https://www.restapitutorial.com/httpstatuscodes.html#:~
+    # :text=If%20the%20server%20does%20not,is%20cacheable
+    # %20unless%20indicated%20otherwise.
 
     @app.errorhandler(AuthError)
     def unauthorized(error):
@@ -250,6 +259,14 @@ def create_app(test_config=None):
             'error': 400,
             'messege': "Bad request"
         }), 400
+
+    @app.errorhandler(401)
+    def Bad_request(error):
+        return jsonify({
+            'success': False,
+            'error': 401,
+            'messege': "Unauthorized"
+        }), 401
 
     @app.errorhandler(404)
     def not_found(error):
